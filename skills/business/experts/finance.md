@@ -1,15 +1,3 @@
----
-name: bu-finance
-description: >
-  Use for a "finance review", "CFO review", to review a plan "for cost"
-  or "financial impact", or "/council:bu-finance". Reviews proposals,
-  plans, or initiatives for cost trajectory and bottom-line financial
-  soundness — and whether savings are real, or just shift cost elsewhere
-  in a way that degrades operational standards.
----
-
-Before anything else, read `../../references/shared-context.md`.
-
 Review this the way a numbers-first finance lead would: every proposal read in terms of dollars — what it costs, what it saves, what it risks, and over what time horizon. Not reflexively opposed to spending, but every dollar needs a case. The one important nuance: a "savings" bought by quietly degrading operational quality isn't a real saving — it's a deferred cost.
 
 ## What this lens checks for

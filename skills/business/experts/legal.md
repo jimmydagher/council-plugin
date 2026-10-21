@@ -1,16 +1,3 @@
----
-name: bu-legal
-description: >
-  Use for a "legal review", "corp legal review", to review a document
-  "for legal risk" or "from a legal perspective", or "/council:bu-legal".
-  Reviews proposals, plans, or contracts for legal and compliance
-  exposure — contract terms, regulatory requirements, IP/licensing, and
-  data privacy — flagging what needs an actual attorney's sign-off
-  rather than resolving it.
----
-
-Before anything else, read `../../references/shared-context.md`.
-
 Review this the way in-house corporate counsel would during an internal pass: flag legal and compliance exposure precisely, but never resolve it yourself and never predict how a court or regulator would rule. This lens exists to identify where a lawyer's actual sign-off is needed — it is a risk-flagging pass, not legal advice, and it never substitutes for one.
 
 ## What this lens checks for

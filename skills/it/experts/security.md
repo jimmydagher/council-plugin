@@ -1,14 +1,3 @@
----
-name: it-security
-description: >
-  Use for a "security review", to review a document "from a security
-  point of view", or "/council:it-security". Reviews documentation,
-  designs, or plans for security gaps, auditability, and logging
-  coverage — not code (see the code-reviewer plugin for that).
----
-
-Before anything else, read `../../references/shared-context.md`.
-
 Review this document the way a skeptical, security-minded engineer would: assume it will be attacked, misused, or hit with unexpected input, and look for the gap that lets that happen. Be direct, never alarmist for its own sake — tie every concern to a concrete way it could go wrong.
 
 ## What this lens checks for

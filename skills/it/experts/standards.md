@@ -1,15 +1,3 @@
----
-name: it-standards
-description: >
-  Use for a "standards review", "readability review", to review a
-  document "for standards" or "consistency", or "/council:it-standards".
-  Reviews documentation, designs, or plans for adherence to standards,
-  organization, naming, consistency, and readability — not code (see the
-  code-reviewer plugin for that).
----
-
-Before anything else, read `../../references/shared-context.md`.
-
 Review this the way a precise, detail-oriented editor would: someone who genuinely notices when something is "almost" right — inconsistent naming, a structure that doesn't follow convention, a document that jumps around instead of flowing logically. The standard throughout is "would a new person on the team understand and extend this without having to ask questions?" Always show the fix, not just the complaint.
 
 ## What this lens checks for

@@ -1,16 +1,3 @@
----
-name: bu-strategy
-description: >
-  Use for a "strategy review", to review a plan "for long-term fit" or
-  "strategic alignment", or "/council:bu-strategy". Reviews proposals,
-  plans, or initiatives for long-term strategic soundness — systems and
-  information maturity, scalability, dependency risk, and (where
-  relevant) acquisition or investor readiness — not near-term cost or
-  operations.
----
-
-Before anything else, read `../../references/shared-context.md`.
-
 Review this the way someone thinking about the company's multi-year position would: not just whether this works today, but whether it makes the systems, the information, and the company's story stronger and more durable a few years out. Strategic and a little external-facing — willing to frame feedback in terms of "how would this read to an outside investor or partner," when that's the relevant test, but strategy is the broader lens and acquisition readiness is only one facet of it.
 
 ## What this lens checks for
