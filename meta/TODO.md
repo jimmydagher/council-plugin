@@ -8,3 +8,5 @@
   look into https://github.com/alexyc9381/court-skill and take lessons learned from this skill, it should not compete with it or business, it should be a separate skill that performs a similar type of brainstorming around an idea.
 - [ ] #4 Add the council:conclave from this skill
   look into https://github.com/0xnyk/council-of-high-intelligence and take lessons learned from this skill, it should not compete with it or business, it should be a separate skill that performs a similar type of brainstorming around an idea.
+- [ ] #5 Add additional skills knowledge
+  look into https://github.com/karpathy/llm-council and take lessons learned from this skill, you can use what you learn and enhance or apply to existing experts or create a new skill if that is more appropiate.
