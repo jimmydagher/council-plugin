@@ -10,3 +10,5 @@
   look into https://github.com/0xnyk/council-of-high-intelligence and take lessons learned from this skill, it should not compete with it or business, it should be a separate skill that performs a similar type of brainstorming around an idea.
 - [ ] #5 Add additional skills knowledge <#maestro feature=FX0095; lane=LN001_FX0095; after=TTD004>
   look into https://github.com/karpathy/llm-council and take lessons learned from this skill, you can use what you learn and enhance or apply to existing experts or create a new skill if that is more appropiate.
+- [ ] #6 All skills need to write outside of the project
+  When using the skills, the files, debates, information, etc. cannot be written inside the project, it can go to the user's project under /.council as temporary sessions or in another temp folder.
