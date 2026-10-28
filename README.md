@@ -66,7 +66,7 @@ Add `--peer` to either area when the findings matter enough to cross-check. With
 | `/council:it --peer` | 4 | 9 |
 | `/council:business --peer --finance --legal` | 2 | 5 |
 
-The cost is at most 2N + 1 calls (fewer when an expert has nothing to check), stated before the run. `--peer` needs at least two experts. Working files go to `.council/<run-id>/` in the current folder (delete when done), so you can check every raw review, peer mark and the tally. The sub-agents are all one model family, so their agreement is correlated evidence, not independent proof.
+The cost is at most 2N + 1 calls (fewer when an expert has nothing to check), stated before the run. `--peer` needs at least two experts. Working files go to `~/.council/<area>/<run-id>/` in your home folder (delete when done), so you can check every raw review, peer mark and the tally. The sub-agents are all one model family, so their agreement is correlated evidence, not independent proof.
 
 Inspired by Karpathy's [llm-council](https://github.com/karpathy/llm-council), which answers a question with several models, has them rank each other's anonymized answers, and has a chairman synthesize the result. This mode applies those ideas to expert document review: nothing is copied, a reviewer never judges its own findings, and findings are checked one by one instead of whole answers being ranked.
 
@@ -83,7 +83,7 @@ Each competitor is a sub-agent that gets the same brief plus one strategy card (
 | `/council:arena --field N <idea>` | 2–16 | N + 5 × (N − 1) |
 | add `--baseline` | — | +1: also judges the champion blind against your current version |
 
-The result is the champion pitch, the attacks it withstood, ideas worth salvaging from the losers, and its open risks. It states the cost before starting and asks first for fields over 8. Working files go to `.arena/<run-id>/` in the current folder (delete when done); it never edits your project. Strategy cards and the rubric are editable in `skills/arena/cards.md` and `skills/arena/rubric.md`.
+The result is the champion pitch, the attacks it withstood, ideas worth salvaging from the losers, and its open risks. It states the cost before starting and asks first for fields over 8. Working files go to `~/.council/arena/<run-id>/` in your home folder (delete when done); it never writes into your project. Strategy cards and the rubric are editable in `skills/arena/cards.md` and `skills/arena/rubric.md`.
 
 Inspired by [arena-skill](https://github.com/Jakeschincariol/arena-skill) (MIT), which runs up to 100 competitors on tasks; this one is a smaller, markdown-only take aimed at ideas.
 
@@ -99,7 +99,7 @@ A prosecutor files up to five numbered charges, the defense answers each (conced
 | `/council:court --quick <idea>` | 5 | 10 |
 | `/council:court --jury N <idea>` | 3–12 | N + 5 |
 
-Give it the specifics (numbers, audience, what you've tried, the alternative): the jury judges only what the case file states. Working files go to `.court/<run-id>/` in the current folder (delete when done); it never edits your project. The jury pool is editable in `skills/court/jurors.md`. The verdict is a structured second opinion, not legal, financial or professional advice.
+Give it the specifics (numbers, audience, what you've tried, the alternative): the jury judges only what the case file states. Working files go to `~/.council/court/<run-id>/` in your home folder (delete when done); it never writes into your project. The jury pool is editable in `skills/court/jurors.md`. The verdict is a structured second opinion, not legal, financial or professional advice.
 
 Inspired by [court-skill](https://github.com/alexyc9381/court-skill) (MIT); this one is markdown-only, votes on each charge, and uses a business/IT jury pool.
 
@@ -115,7 +115,7 @@ A panel of sub-agents, each a different lens (customer advocate, unit economist,
 | `/council:conclave --quick <idea>` | 4, blind positions only | 5 |
 | `/council:conclave --seats N <idea>` | 3–12 | 3N + 1 |
 
-It states the cost before starting and asks first when a run is over 20 calls. If you have already decided and want approval, or the question is a plain lookup, it says so and suggests a better tool. Working files go to `.conclave/<run-id>/` in the current folder (delete when done); it never edits your project. The lens pool is editable in `skills/conclave/lenses.md`. The report is a set of perspectives from language models, not professional advice, and a panel agreeing is not proof.
+It states the cost before starting and asks first when a run is over 20 calls. If you have already decided and want approval, or the question is a plain lookup, it says so and suggests a better tool. Working files go to `~/.council/conclave/<run-id>/` in your home folder (delete when done); it never writes into your project. The lens pool is editable in `skills/conclave/lenses.md`. The report is a set of perspectives from language models, not professional advice, and a panel agreeing is not proof.
 
 Inspired by [council-of-high-intelligence](https://github.com/0xnyk/council-of-high-intelligence), a separate general-purpose multi-host skill that this one does not replace; this one is markdown-only, uses business/IT lenses instead of historical personas, and has a smaller, cost-bounded panel.
 

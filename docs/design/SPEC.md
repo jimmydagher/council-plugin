@@ -82,7 +82,7 @@ Lessons taken from the upstream `arena-skill` (MIT; nothing copied verbatim): on
 
 ### Flow
 
-1. **Brief.** Write one brief — the idea, goal, constraints, and what a good answer contains — to `.arena/<run-id>/brief.md`. Every competitor receives it byte-for-byte. Pitches stay under about 700 words, revisions included.
+1. **Brief.** Write one brief — the idea, goal, constraints, and what a good answer contains — to `~/.council/arena/<run-id>/brief.md`. Every competitor receives it byte-for-byte. Pitches stay under about 700 words, revisions included.
 2. **Deal.** Each competitor gets one strategy card from `skills/arena/cards.md`: a **lens** (e.g. first principles, inversion, customer's eyes, constraint-first, analogy from another industry, minimum viable, 10× version, contrarian), a **shape** (e.g. phased rollout, platform, service, partnership, automation, kill-or-pivot) and a **bias** (e.g. cheapest, fastest to market, lowest risk, most defensible, simplest to run). Cards are dealt without repeats, spreading each part as evenly as possible.
 3. **Pitch.** Each competitor (fresh sub-agent) writes its version of the idea to `pitches/<id>.md` in the fixed pitch format: one-line pitch, how it works, who it serves, why now, cost/effort, top risks, first three steps.
 4. **Match** (repeated per round). Pair competitors, avoiding same-lens pairs; an odd field gives one bye, never twice to the same competitor while others wait.
@@ -113,8 +113,8 @@ An **Arena Result** in chat:
 
 ### Rules
 
-- Never edits the user's project. The only files written are under `.arena/<run-id>/` in the current directory (`run-id` = `YYYYMMDD-HHMMSS`); the result names that folder so the user can delete it.
-- The main session holds only file paths and scores, not pitch text, until the final output; a run can be resumed from `.arena/<run-id>/state.md` after compaction.
+- Never writes into or edits the user's project. The only files written (see **Run files**) are under `~/.council/arena/<run-id>/` in the user's profile, never in the project (`run-id` = `YYYYMMDD-HHMMSS`); the result names that folder so the user can delete it.
+- The main session holds only file paths and scores, not pitch text, until the final output; a run can be resumed from `~/.council/arena/<run-id>/state.md` after compaction.
 - Sub-agents run in waves of at most 8 in parallel.
 - The champion is the strongest idea found, not a guarantee it is right; the output says so in one line.
 - The four shared-process rules in `references/shared-context.md` (no manufactured findings, concrete fixes) apply to attacks and judgments.
@@ -144,7 +144,7 @@ Twelve jurors, each a one-paragraph perspective with what they weigh and what wo
 
 ### Flow
 
-1. **Case file.** Write the idea, goal, decision being made, and stated facts to `.court/<run-id>/case.md`. Every sub-agent gets it byte-for-byte; nobody may invent facts the case file doesn't state (an unstated fact is argued as unknown, not assumed).
+1. **Case file.** Write the idea, goal, decision being made, and stated facts to `~/.council/court/<run-id>/case.md`. Every sub-agent gets it byte-for-byte; nobody may invent facts the case file doesn't state (an unstated fact is argued as unknown, not assumed).
 2. **Openings** (2 in parallel).
    - **Prosecution:** the strongest honest case that the idea fails as described, as 1–5 numbered **charges**, each with the claim, the fact from the case file it rests on, and a concrete failure scenario. No charge it does not believe holds.
    - **Defense:** the strongest honest case that it works: why, for whom, and what evidence in the case file supports it.
@@ -157,7 +157,7 @@ Twelve jurors, each a one-paragraph perspective with what they weigh and what wo
 
 ### Output
 
-A **Court Verdict** in chat (also `.court/<run-id>/VERDICT.md`):
+A **Court Verdict** in chat (also `~/.council/court/<run-id>/VERDICT.md`):
 
 - **Verdict** — GUILTY / NOT GUILTY / HUNG, with the count ("GUILTY, 7 to 2") and the jury size.
 - **Charges** — each with sustained / dismissed / hung, its count, and one line on why.
@@ -170,7 +170,7 @@ A **Court Verdict** in chat (also `.court/<run-id>/VERDICT.md`):
 
 ### Rules
 
-- Never edits the user's project. The only files written are under `.court/<run-id>/` in the current directory (`run-id` = `YYYYMMDD-HHMMSS`): `case.md`, `jury.md`, `filings/{prosecution,defense}-{opening,rebuttal}.md`, `ballots/jNN.md`, `tally.md`, `VERDICT.md`, `state.md`. The result names that folder so the user can delete it.
+- Never writes into or edits the user's project. The only files written (see **Run files**) are under `~/.council/court/<run-id>/` in the user's profile, never in the project (`run-id` = `YYYYMMDD-HHMMSS`): `case.md`, `jury.md`, `filings/{prosecution,defense}-{opening,rebuttal}.md`, `ballots/jNN.md`, `tally.md`, `VERDICT.md`, `state.md`. The result names that folder so the user can delete it.
 - The main session never argues a side, never votes and never edits the verdict; it holds only paths, one-line returns and the ballots' vote lines (for the tally) until the judgment, and a run can resume from `state.md` after compaction.
 - A ballot missing a vote line for a charge, the overall verdict or the FLIP line is re-requested once from the same juror; if still malformed, that juror is recorded as **abstained** and the count says so.
 - The four shared-process rules in `references/shared-context.md` (no manufactured findings, concrete fixes) apply to charges, rebuttals and ballots.
@@ -201,7 +201,7 @@ Twelve lenses in six counterweight pairs, listed in a fixed seating order so the
 
 ### Flow
 
-1. **Field notes.** Write to `.conclave/<run-id>/notes.md`: the idea, the decision, the goal, **Facts stated** (only what the user said), **Assumptions** being made, **Unknowns** that could change the answer, reversibility, and deadline (each "not stated" if absent). Every sub-agent gets it byte-for-byte; no one may invent facts it doesn't state. Seat the panel and write `panel.md`.
+1. **Field notes.** Write to `~/.council/conclave/<run-id>/notes.md`: the idea, the decision, the goal, **Facts stated** (only what the user said), **Assumptions** being made, **Unknowns** that could change the answer, reversibility, and deadline (each "not stated" if absent). Every sub-agent gets it byte-for-byte; no one may invent facts it doesn't state. Seat the panel and write `panel.md`.
 2. **Round 1 — blind positions** (N in parallel, waves of at most 8). Each lens reads only the notes and its own lens card, never another position, and writes `r1/<id>.md` in the fixed position format: a `POSITION:` one-liner, 3–6 numbered claims each labeled FACT / INFERENCE / ASSUMPTION / UNKNOWN, `BLIND SPOT:` (where its own lens could mislead it here), and `ASK:` (the one thing it would want answered). Under about 400 words.
 3. **Round 2 — cross-examination** (N in parallel; skipped in `--quick`). Each lens reads all Round 1 positions and writes `r2/<id>.md`: a direct challenge to its counterweight (or, with no counterweight seated, to the position it most disagrees with) and one more challenge to another lens, each quoting the claim it attacks and the evidence or gap it exposes; and, for each other position, **AGREE** (naming what agreement costs the idea), **DISAGREE** or **NO VIEW**. Blanket agreement or a challenge with no quoted claim is invalid. Under about 400 words.
 4. **Round 3 — final stance** (N in parallel; skipped in `--quick`). Each lens reads the notes, all Round 1 positions and all Round 2 cross-examinations (especially those aimed at it) and writes `r3/<id>.md`: `STANCE: BACK | BACK IF | OPPOSE — <reason>` (`BACK IF` names its condition), `MOVED: YES | NO — <what changed its mind, or what it held against which challenge>`, `COMPROMISE:` (what it could accept), `KILL:` (the evidence that would make it drop its stance). Under about 300 words.
@@ -210,7 +210,7 @@ Twelve lenses in six counterweight pairs, listed in a fixed seating order so the
 
 ### Output
 
-A **Conclave Report** in chat (also `.conclave/<run-id>/REPORT.md`), in this order:
+A **Conclave Report** in chat (also `~/.council/conclave/<run-id>/REPORT.md`), in this order:
 
 - **Panel** — size, mode, run folder path, and any unpaired lens.
 - **Unresolved first** — open questions and UNKNOWNs that could change the answer, each with the lens that raised it and a cheap way to check it.
@@ -225,7 +225,7 @@ A **Conclave Report** in chat (also `.conclave/<run-id>/REPORT.md`), in this ord
 
 ### Rules
 
-- Never edits the user's project. The only files written are under `.conclave/<run-id>/` in the current directory (`run-id` = `YYYYMMDD-HHMMSS`): `notes.md`, `panel.md`, `r1/`, `r2/`, `r3/`, `count.md`, `REPORT.md`, `ledger.md`, `state.md`. The result names that folder so the user can delete it.
+- Never writes into or edits the user's project. The only files written (see **Run files**) are under `~/.council/conclave/<run-id>/` in the user's profile, never in the project (`run-id` = `YYYYMMDD-HHMMSS`): `notes.md`, `panel.md`, `r1/`, `r2/`, `r3/`, `count.md`, `REPORT.md`, `ledger.md`, `state.md`. The result names that folder so the user can delete it.
 - Independence: in Round 1 no sub-agent sees another position; every later round names exactly which files a sub-agent may read.
 - The main session never argues, takes a stance or edits the report; it holds only paths, one-line returns and the `STANCE` / `MOVED` lines until the end, and a run can resume from `state.md` after compaction.
 - A file missing a required line is re-requested once from the same lens; if still malformed, that lens is recorded as **abstained** and the count says so. Required lines: Round 1 `POSITION`, at least one `CLAIM`, `BLIND SPOT`, `ASK`; Round 3 `STANCE`, `MOVED`, `COMPROMISE`, `KILL`. Round 2 files are not machine-checked; the chair treats a challenge with no quoted claim, or an AGREE that names no cost, as invalid. A lens abstained in Round 1 sits out the later rounds and is not counted.
@@ -265,7 +265,7 @@ Deliberately different:
 
 ### Flow
 
-1. **Brief.** Write `.council/<run-id>/brief.md`: the area, the selected experts, and the document's path (or the pasted text in full). Every sub-agent reads this and only the files its brief names.
+1. **Brief.** Write `~/.council/<area>/<run-id>/brief.md`: the area, the selected experts, and the document's path (or the pasted text in full). Every sub-agent reads this and only the files its brief names.
 2. **Stage 1: independent reviews** (N in parallel). Each expert sub-agent reads the brief, the document and its own expert file, never another review. It writes `reviews/<expert>.md` in its expert file's exact format, followed by a closing block: `FINDINGS:`, then one line per finding, `- <severity> | <one-line claim> | <fix>`, with severity `Critical`, `High`, `Medium` or `Low` (Security's own scale; the other experts rate the finding's impact on the document's goal). An expert with nothing of concern writes `FINDINGS: none` (shared-process rule 3).
 3. **Anonymize** (main session, mechanical). Collect every `FINDINGS` line into `findings.md`, numbered `F1`, `F2`, … in a fixed interleaved order (round-robin across experts, starting with the last in canonical order, so findings aren't grouped by expert), with the expert name removed and the severity kept. `labels.md` maps each number to its expert and is never given to a Stage 2 sub-agent.
 4. **Stage 2: peer check** (up to N in parallel). An expert whose input would be empty (every other expert wrote `FINDINGS: none`) gets no peer check and no call; if nobody found anything, Stage 2 and the tally are skipped and the chair is told there were no findings to check. Each expert reads the brief, the document, its own expert file, its own review and a copy of `findings.md` with its own findings removed (`peer/<expert>-input.md`), and writes `peer/<expert>.md`:
@@ -289,12 +289,26 @@ In chat, in this order:
 - The selected reviews in canonical order, each in its expert's exact format (the `FINDINGS` block is left out of the chat copy).
 - **Peer Review**: one table from `tally.md` (finding, expert, severity, holds / overstated / wrong, points, status), then the unreviewed `MISSED` items with who raised them.
 - The area **Verdict** from `VERDICT.md`, with one added line, **Peer-contested:** the contested and unchecked findings and how to settle each, or "none".
-- One closing line naming `.council/<run-id>/` (raw reviews, peer files, tally) so the user can check the parsing or delete it, and saying that agreement among sub-agents of one model family is correlated evidence, not independent confirmation.
+- One closing line naming `~/.council/<area>/<run-id>/` (raw reviews, peer files, tally) so the user can check the parsing or delete it, and saying that agreement among sub-agents of one model family is correlated evidence, not independent confirmation.
 
 ### Rules
 
-- Never edits the user's project. The only files written are under `.council/<run-id>/` in the current directory (`run-id` = `YYYYMMDD-HHMMSS`): `brief.md`, `reviews/`, `findings.md`, `labels.md`, `peer/`, `tally.md`, `VERDICT.md`, `state.md`. A run can resume from `state.md` after compaction.
+- Never writes into or edits the user's project. The only files written (see **Run files**) are under `~/.council/<area>/<run-id>/` in the user's profile, never in the project (`run-id` = `YYYYMMDD-HHMMSS`): `brief.md`, `reviews/`, `findings.md`, `labels.md`, `peer/`, `tally.md`, `VERDICT.md`, `state.md`. A run can resume from `state.md` after compaction.
 - The main session never reviews, judges or edits the verdict; it holds paths, the parsed lines and one-line returns.
 - Graceful degradation. A file missing its closing block (Stage 1 `FINDINGS`; Stage 2 at least one `F<n>:` line and `TOP`) is re-requested once from the same expert. If it is still malformed or the sub-agent fails, that expert is **not run** for that stage: with no review it has no findings and does no peer check; with no peer check its marks are absent. The run continues while at least two reviews exist; with fewer it stops and names the single-session mode (`/council:<area>` without `--peer`) as the fallback. If the chair fails, the output gives the reviews and the Peer Review table and says the verdict wasn't produced.
 - A `F<n>:` line or `TOP` entry naming a number the expert wasn't shown (including its own finding), or a second mark on the same number from the same expert, is ignored and noted in the tally.
 - The four shared-process rules apply to every finding and every peer mark.
+
+## Run files (all skills) — TODO #6
+
+No skill writes into the user's project or its working directory. Every run's working files (briefs, pitches, filings, ballots, reviews, tallies, state, verdicts) go to one root in the user's profile:
+
+```text
+~/.council/<skill>/<run-id>/
+```
+
+- `~` is the user's home directory (`%USERPROFILE%` on Windows, `$HOME` elsewhere), resolved at run time; `<skill>` is `arena`, `court`, `conclave`, or the area (`it`, `business`) for a `--peer` run. `run-id` = local time `YYYYMMDD-HHMMSS`; if that folder exists, append `-2`, `-3`, ….
+- The folders are temporary: the result names the full path so the user can inspect or delete it. Nothing is deleted automatically and nothing is added to the project's `.gitignore` (the project is never touched).
+- If the profile folder can't be created or written, state the reason and stop — never fall back to the current directory or the project.
+- A run resumes from `state.md` in its folder after compaction; the main session keeps the full path in its context.
+- The document under review (`it`/`business`) is only read from where it is, never copied into the project; pasted text is saved in the run folder's brief.

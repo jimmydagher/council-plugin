@@ -15,10 +15,10 @@ Sub-agent calls = **2N + 1** (N reviews, N peer checks, 1 chair): 2 → 5, 3 →
 
 ## Run folder
 
-All files go under `.council/<run-id>/` in the current directory, `run-id` = local time `YYYYMMDD-HHMMSS`. Never write anywhere else and never edit the user's project.
+All files go under `~/.council/<area>/<run-id>/` — `<area>` is `it` or `business`; `~` is the user's home directory (`%USERPROFILE%` on Windows, `$HOME` elsewhere), resolved when the run starts and used as a full path everywhere (sub-agent briefs get the resolved path). `run-id` = local time `YYYYMMDD-HHMMSS`; if that folder already exists, append `-2`, `-3`, …. Never write into or edit the user's project or the current directory, and never write anywhere else. If the folder can't be created or written, say why and stop — never fall back to the current directory.
 
 ```text
-.council/<run-id>/
+~/.council/<area>/<run-id>/
 ├── brief.md                 — area, experts, document path (or the pasted text)
 ├── reviews/<expert>.md      — Stage 1 reviews
 ├── findings.md              — every finding, anonymized as F1, F2, …
@@ -150,4 +150,4 @@ In chat, in this order:
 1. The selected reviews in canonical order, each under its heading from the area's expert table, in its expert's exact format, read from `reviews/` with the `FINDINGS` block left out.
 2. **Peer Review** — the table from `tally.md` with each finding's text, then the unreviewed `MISSED` items with who raised them, and any experts not run.
 3. The area verdict from `VERDICT.md`, including its **Peer-contested** line.
-4. One closing line: `Run files: .council/<run-id>/ (reviews, peer checks, tally) — delete when done. Peer agreement among sub-agents of one model family is correlated evidence, not independent confirmation.`
+4. One closing line: `Run files: <full resolved path of ~/.council/<area>/<run-id>/> (reviews, peer checks, tally) — in your profile, delete when done. Peer agreement among sub-agents of one model family is correlated evidence, not independent confirmation.`

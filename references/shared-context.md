@@ -30,6 +30,8 @@ council
 
 Each area is one skill. Its experts are plain markdown files under the area's `experts/` folder — they are not skills and can't be invoked on their own. A new area adds one skill folder; a new expert adds one file and one row in its area's expert table. `council:arena`, `council:court` and `council:conclave` have no experts and their own flags; the area and argument rules below don't apply to them.
 
+**Run files never go in the user's project.** Any skill that writes working files (arena, court, conclave, and `--peer` runs) writes them only under `~/.council/<skill>/<run-id>/` in the user's home directory; see `docs/design/SPEC.md › Run files`.
+
 ## Area skills (`council:it`, `council:business`)
 
 An area skill runs its selected experts in full, each under its own heading, using that expert's exact output format — then, when two or more ran, closes with a **Verdict** section that reconciles them (see each area skill for its own reconciliation rules). The verdict is the most important part of a multi-expert output; never let it collapse into a shallow restatement of the findings tables above it.

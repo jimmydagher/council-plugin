@@ -2,6 +2,34 @@
 
 ## ⛏️ In progress
 
+**TTD006 / TODO #6 — All skills write their run files outside the project.** Behavior is in `SPEC.md › Run files`. (TTD005's finished steps below are merged into the plan body on the next pass; they stay here until then.)
+
+### Decision: where run files go
+
+The owner's correction: "outside the project" means the user's **profile**, not the project. Options:
+
+1. **`~/.council/<skill>/<run-id>/`** — **chosen.** One discoverable root, per-skill subfolders, survives across projects, never inside a repo so it can't be committed or leak into a diff. Keeps the existing `<run-id>` and `state.md` resume scheme.
+2. OS temp dir (`%TEMP%`, `/tmp`) — rejected: cleaned unpredictably, so a resume after compaction or a later inspection can fail, and paths differ per OS.
+3. Keep per-project dot-folders and add them to `.gitignore` — rejected: still writes into the project, which is the thing being forbidden.
+
+### Steps
+
+1. Replace the four path rules (each states "current directory") in `skills/arena/SKILL.md`, `skills/court/SKILL.md`, `skills/conclave/SKILL.md` and `references/peer-review.md` with the SPEC rule: root `~/.council/<skill>/<run-id>/` (`<area>` for `--peer`), resolve `~` at run time, `-2` suffix on collision, stop with the reason if the folder can't be written (never fall back to the project). Update their layout trees and closing "run files" lines to print the full resolved path. Read each file's other path mentions first. **STOP** if a skill writes a file the SPEC's list doesn't cover.
+2. `skills/it/SKILL.md`, `skills/business/SKILL.md`, `references/shared-context.md`: check for path or "never edit the project" wording; align it and name the shared rule once in `shared-context.md`. Check how sub-agent prompts reference run paths (briefs pass `<…>` file paths, so they must be the resolved absolute path).
+3. `README.md`: replace the four "in the current folder (delete when done)" sentences with the profile path; mention it once in a short "Where files go" note. Add a `meta/CHANGELOG.md` entry under 🚧 Unreleased citing `TODO #6` (TTD006).
+4. Extend the tests (stdlib `unittest`, same style): every `SKILL.md` and `peer-review.md` names `~/.council/<…>/<run-id>`; no file under `skills/` or `references/` still contains `.arena/`, `.court/`, `.conclave/`, a bare `.council/<run-id>` or "current directory/folder" as a write location. Add the new tests first and confirm they fail on the current text, then make them pass.
+5. Verify: `python -m unittest discover -s tests` passes; grep the repo for stale paths; one live run (e.g. `council:court --quick` on a sample idea) confirming files land only under the home `.council/court/<run-id>/` and the working directory is unchanged (`git status` clean). If no live multi-agent session is available, say so and leave it for validate. Report what wasn't covered (e.g. Windows vs POSIX path resolution tested on one OS only).
+
+### Risks and notes
+
+- Folders accumulate in the profile; nothing auto-deletes. The result names the path for the user to delete. A cleanup command is out of scope.
+- Pasted or sensitive idea text now persists in the user's home rather than the project; the output line says so.
+- Existing `.arena/`, `.court/`, `.conclave/`, `.council/` folders in projects from earlier runs are not migrated or removed.
+- Unchanged: run-id format, file names inside a run, resume via `state.md`, every skill's process and output.
+
+---
+
+### Previous change (merged on next pass)
 **TTD005 / TODO #5 — Apply llm-council's lessons: `--peer` mode for `council:it` and `council:business`.** Behavior is in `SPEC.md › Peer review`.
 
 ### Decision: where llm-council's lessons go

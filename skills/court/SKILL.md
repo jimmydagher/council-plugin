@@ -36,10 +36,10 @@ Before starting, say in one line: jury size and the call count. No confirmation 
 
 ## Run folder
 
-All files go under `.court/<run-id>/` in the current directory, `run-id` = local time `YYYYMMDD-HHMMSS`. Never write anywhere else and never edit the user's project.
+All files go under `~/.council/court/<run-id>/` — `~` is the user's home directory (`%USERPROFILE%` on Windows, `$HOME` elsewhere), resolved when the run starts and used as a full path everywhere (sub-agent briefs get the resolved path). `run-id` = local time `YYYYMMDD-HHMMSS`; if that folder already exists, append `-2`, `-3`, …. Never write into or edit the user's project or the current directory, and never write anywhere else. If the folder can't be created or written, say why and stop — never fall back to the current directory.
 
 ```text
-.court/<run-id>/
+~/.council/court/<run-id>/
 ├── case.md                          — the one case file every sub-agent gets
 ├── jury.md                          — the seated jurors (id, seat, juror)
 ├── filings/
