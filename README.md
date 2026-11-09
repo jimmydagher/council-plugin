@@ -13,7 +13,8 @@ council
 ├── council:business  — Operations, Finance, Strategy, Legal
 ├── council:arena     — idea tournament: find the strongest version of an idea
 ├── council:court     — idea trial: a jury's verdict on an idea as stated
-└── council:conclave  — idea panel: differently-minded lenses map what you're missing
+├── council:conclave  — idea panel: differently-minded lenses map what you're missing
+└── council:eli5      — the kid: explains it in plain words and shows where it got lost
 ```
 
 One skill per area. Pick experts within an area with a flag; with no flag, every expert in the area runs and one reconciled verdict closes the review.
@@ -50,7 +51,15 @@ For reviewing business proposals, plans, budgets, or initiatives.
 | `/council:business --finance` | Finance only, no verdict |
 | `/council:it --peer` | All IT experts, independently, cross-checked, then a verdict (see below) |
 
-Flags work in any order and the experts always run in the table's order. A flag that isn't one of the area's experts (such as `/council:it --finance`) is an error that lists the valid flags. `/council` alone runs every skill (it, business, conclave, court, arena) on one document or idea and closes with a combined summary; it accepts only `--quick` and `--peer`, and is token-heavy. To run one area or expert, use `/council:<skill>`.
+Flags work in any order and the experts always run in the table's order. A flag that isn't one of the area's experts (such as `/council:it --finance`) is an error that lists the valid flags. `/council` alone runs every skill (it, business, conclave, court, arena, eli5) on one document or idea and closes with a combined summary; it accepts only `--quick` and `--peer`, and is token-heavy. To run one area or expert, use `/council:<skill>`.
+
+## Eli5 (`council:eli5`)
+
+The kid. One sub-agent that sees only your text explains it back the way a five-year-old would, then lists every place it got lost (jargon, missing reasons, steps that jump) with a plainer rewrite for each. It checks readability, not whether the content is right. One sub-agent call, no flags, no files written.
+
+| Command | Result |
+|---------|--------|
+| `/council:eli5 <document or idea>` | The kid's version, then where it got lost |
 
 ## Peer review (`--peer`)
 

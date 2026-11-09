@@ -25,7 +25,8 @@ council               — skills/council (root: runs every skill below in order,
 │   └── experts/          — ops, finance, strategy, legal
 ├── council:arena         — skills/arena (generative; cards.md, rubric.md)
 ├── council:court         — skills/court (verdict; jurors.md)
-└── council:conclave      — skills/conclave (deliberation; lenses.md)
+├── council:conclave      — skills/conclave (deliberation; lenses.md)
+└── council:eli5          — skills/eli5 (clarity check: the kid; one sub-agent, no files)
 ```
 
 Each area is one skill. Its experts are plain markdown files under the area's `experts/` folder — they are not skills and can't be invoked on their own. A new area adds one skill folder; a new expert adds one file and one row in its area's expert table. `council:arena`, `council:court` and `council:conclave` have no experts and their own flags; the area and argument rules below don't apply to them.

@@ -2,6 +2,7 @@
 
 ## 🚧 Unreleased
 
+- New `/council:eli5` skill, "the kid": one sub-agent with only your text explains it in a five-year-old's words and lists where it got lost, with a plainer rewrite for each; `/council` now runs it as the sixth skill (TODO #7).
 - New root `/council` skill: runs every council skill (it, business, conclave, court, arena) in order on one document or idea and closes with a combined summary; accepts `--quick` and `--peer`, like `/sdsi` runs every SDSI topic.
 - Skills are now organized by area with an expert flag: `/council:it` and `/council:business` run every expert in the area and a reconciled verdict, while `--security`, `--standards`, `--efficiency`, `--infra`, `--ops`, `--finance`, `--strategy` and `--legal` run only the chosen experts (TODO #1).
 - Breaking: removed `/council:all`, the per-expert skills (`council:it-security`, `council:it-standards`, `council:it-efficiency`, `council:it-infra`, `council:bu-ops`, `council:bu-finance`, `council:bu-strategy`, `council:bu-legal`), and renamed `council:bu` to `council:business` (TODO #1).

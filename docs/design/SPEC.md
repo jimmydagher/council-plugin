@@ -312,3 +312,13 @@ No skill writes into the user's project or its working directory. Every run's wo
 - If the profile folder can't be created or written, state the reason and stop — never fall back to the current directory or the project.
 - A run resumes from `state.md` in its folder after compaction; the main session keeps the full path in its context.
 - The document under review (`it`/`business`) is only read from where it is, never copied into the project; pasted text is saved in the run folder's brief.
+
+## Eli5 (`council:eli5`) — TODO #7
+
+A **clarity** skill, "the kid": one sub-agent that is given only the user's text (no project, goal or notes) explains it back in words a five-year-old would follow, with one everyday comparison, then lists where it got lost as a table (quote, why, plainer version). It does not judge whether the content is right; that stays with `council:it`, `council:business`, `council:court` and `council:conclave`.
+
+- Invocation: `/council:eli5 <document or idea>`. No flags; a flag-like word is an error. One sub-agent call, so no cost confirmation.
+- The text goes to the sub-agent unmodified; the main session adds only the closing line (row count and whether the core survived).
+- Writes no files, so there is no run folder; it never touches the user's project.
+- Added to the root `/council` run as the sixth and last skill, given the original text rather than the restated idea.
+- The output says it is a model standing in for a beginner, not a test with real beginners.
