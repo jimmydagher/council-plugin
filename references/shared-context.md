@@ -18,7 +18,7 @@ The area skills review **documentation, designs, plans, and business proposals**
 ## Structure
 
 ```text
-council
+council               — skills/council (root: runs every skill below in order, then a summary)
 ├── council:it            — skills/it
 │   └── experts/          — security, standards, efficiency, infra
 ├── council:business      — skills/business

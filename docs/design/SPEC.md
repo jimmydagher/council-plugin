@@ -49,7 +49,7 @@ Experts are not skills and have no command of their own. Each is one markdown fi
 
 ## Removed
 
-- `council:all` (company-wide verdict across every area). Run each area separately.
+- `council:all` as an area-level verdict. The root `/council` skill runs every skill in order and writes a summary of what they returned, not a new company-wide verdict.
 - Per-expert skills (`council:it-security`, `council:it-standards`, `council:it-efficiency`, `council:it-infra`, `council:bu-ops`, `council:bu-finance`, `council:bu-strategy`, `council:bu-legal`). Replaced by flags.
 - `council:bu`. Renamed `council:business`.
 

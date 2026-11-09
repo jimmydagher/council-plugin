@@ -8,6 +8,7 @@ This plugin supersedes the earlier `council-of-claude` plugin, which named each 
 
 ```text
 council
+├── /council          — runs every skill below in order, then one combined summary
 ├── council:it        — Security, Standards, Efficiency, Infrastructure
 ├── council:business  — Operations, Finance, Strategy, Legal
 ├── council:arena     — idea tournament: find the strongest version of an idea
@@ -49,7 +50,7 @@ For reviewing business proposals, plans, budgets, or initiatives.
 | `/council:business --finance` | Finance only, no verdict |
 | `/council:it --peer` | All IT experts, independently, cross-checked, then a verdict (see below) |
 
-Flags work in any order and the experts always run in the table's order. A flag that isn't one of the area's experts (such as `/council:it --finance`) is an error that lists the valid flags. There is no all-areas command: run `council:it` and `council:business` separately.
+Flags work in any order and the experts always run in the table's order. A flag that isn't one of the area's experts (such as `/council:it --finance`) is an error that lists the valid flags. `/council` alone runs every skill (it, business, conclave, court, arena) on one document or idea and closes with a combined summary; it accepts only `--quick` and `--peer`, and is token-heavy. To run one area or expert, use `/council:<skill>`.
 
 ## Peer review (`--peer`)
 
